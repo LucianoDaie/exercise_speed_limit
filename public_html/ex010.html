@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+
+    <style>
+        body {
+            font: normal 18px Arial;
+            background-color:cadetblue;
+            
+        }
+
+        p#alert {
+            font: bold 25px Arial;
+            margin-bottom: 40px;
+            color: whitesmoke;
+            text-align: center;   
+        }
+
+        h1 {
+            color:cadetblue;
+            background-color:whitesmoke;
+            padding: 30px;
+            margin: 50px;
+            text-align: center;
+            
+        }
+
+        p#velo {
+            padding-left: 50px;
+
+        }
+
+        p#button {
+           margin-left: 425px;
+        }
+
+        div#res {
+            padding-left: 50px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>Sistema de Multas</h1>
+    <p id=alert>Velocidade máxima permitida: 60 KM/H</p>
+
+    <p id=velo>Informe a velocidade do carro: <input type="number" name="txtvel" id="txtvel"> Km/h</p>
+    <p id=button><input type="button" value="Verificar" onclick="calcular()"></p>
+    <div id="res"></div>
+
+    <script>
+        
+        res.innerText=(`Sua velocidade é de ${txtv}`)
+
+        function calcular () {
+            var txtv=window.document.querySelector('input#txtvel') //variável que serve para coletar o valor do Input de type "Number" no HTML
+            var vel=Number(txtv.value) //variável quer serve para transformar o Input de type "Number" da var txtv em um número, porque ele vem em string (sequência de números)
+            var res=window.document.querySelector('div#res') //variável que serve para receber o texto da div no HTML (ainda que o texto não exista)
+            res.innerHTML=`<p>Sua velocidade atual é de <strong>${vel}Km/h</strong>.</p>` //comando para escrever um texto no HTML após o botão ser clicado
+            
+            if (vel > 60) {
+                res.innerHTML+=`<p>Você está <strong>MULTADO</strong> por excesso de velocidade!</p>` //o += aqui serve para ADICIONAR mais textos na DIV do HTML sem criar outras 
+
+            } else {
+                res.innerHTML+=`<p>Parabéns! Você não tem pé de chumbo!</p>`
+            }
+          
+          
+            res.innerHTML+=`<p>Dirija sempre com cinto de segurança.</p>`
+
+          
+        }
+
+    </script>
+
+
+
+    
+</body>
+</html>
